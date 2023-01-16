@@ -10,6 +10,7 @@ import { listProductsByCategory } from "./app/use-cases/categories/list-products
 import { listOrders } from "./app/use-cases/orders/list-orders";
 import { createOrder } from "./app/use-cases/orders/create-order";
 import { changeOrderStatus } from "./app/use-cases/orders/change-order-status";
+import { cancelOrder } from "./app/use-cases/orders/cancel-order";
 
 export const router = Router();
 const upload = multer({
@@ -48,6 +49,4 @@ router.post("/orders", createOrder);
 router.patch("/orders/:orderId", changeOrderStatus);
 
 // Delete/cancel order
-router.delete("/orders/:orderId", (req, res) => {
-  res.send("OK");
-});
+router.delete("/orders/:orderId", cancelOrder);
